@@ -35,6 +35,16 @@ def insertion_sort(arr):
     n = len(arr)
     
     # TODO: 두 번째 원소(인덱스 1)부터 시작
+    for i in range(1, n):
+        key = arr[i]
+        for j in reversed(range(i)):
+            if key < arr[j]:
+                arr[j+1] = arr[j]
+                print('바뀜')
+            else:
+                arr[j] = key
+                break
+
     ## 각 원소를 정렬된 부분에 삽입
     ## 현재 원소를 key에 저장    
     ## key를 삽입할 위치 찾기
