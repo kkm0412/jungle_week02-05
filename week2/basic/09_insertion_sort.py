@@ -33,16 +33,19 @@ def insertion_sort(arr):
         정렬된 배열
     """
     n = len(arr)
-    
     # TODO: 두 번째 원소(인덱스 1)부터 시작
     for i in range(1, n):
         key = arr[i]
-        for j in reversed(range(i)):
+        # print(i,"부터")
+        for j in reversed(range(0, i)):
+            # print(arr[j+1], " ", arr[j])
+            # print("현재 키값,", key)
             if key < arr[j]:
                 arr[j+1] = arr[j]
-                print('바뀜')
-            else:
+                
                 arr[j] = key
+                # print('바뀜')
+            else:
                 break
 
     ## 각 원소를 정렬된 부분에 삽입
@@ -51,8 +54,6 @@ def insertion_sort(arr):
     ## j는 key 바로 앞 인덱스부터 시작
     ## arr[j] > key인 동안 원소를 오른쪽으로 이동
     ## 찾은 위치에 key 삽입
-    pass
-    
     return arr
 
 def insertion_sort_with_steps(arr):
@@ -70,9 +71,11 @@ def insertion_sort_with_steps(arr):
         print(f"정렬된 부분: {arr[:i]}")
         
         # TODO: 삽입 위치 찾기 및 이동
-        pass
+        for j in reversed(range(0,i)):
+            if arr[j] > key:
+                arr[j+1] = arr[j]
+                arr[j] = key
         
-        arr[j + 1] = key
         print(f"삽입 후: {arr}")
     
     return arr
