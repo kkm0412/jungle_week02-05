@@ -36,8 +36,15 @@ def gcd(a, b):
     """
     # TODO: 유클리드 호제법 구현
     # base case: b가 0이면 a 반환
-    # recursive를 이용 
-    pass
+    if b == 0:
+        return a
+    
+    if a > b:
+        a, b = b, a
+    b = b % a
+    # recursive를 이용
+    return(gcd(a, b))
+    
 
 def gcd_iterative(a, b):
     """
@@ -50,8 +57,12 @@ def gcd_iterative(a, b):
         최대공약수
     """
     # TODO: 반복문으로 구현
+    while b!=0:
+        if a > b:
+            a,b = b,a
+        b = b % a
+    return a 
     # b가 0이 될 때까지 반복
-    pass
 
 def lcm(a, b):
     """
@@ -64,7 +75,7 @@ def lcm(a, b):
         최소공배수
     """
     # TODO: LCM 계산
-    pass
+    return int(a * b /gcd(a, b))
 
 def extended_gcd(a, b):
     """
@@ -79,7 +90,14 @@ def extended_gcd(a, b):
     """
     # TODO: 확장 유클리드 호제법 구현
     # base case: b가 0이면 (a, 1, 0) 반환    
+    if b == 0:
+        return (a,1,0)
     # recursive case
+    if a >b:
+        a = a % b
+        extended_gcd()
+
+        
     # 역추적하며 x, y 계산
     pass
 
@@ -143,5 +161,3 @@ if __name__ == "__main__":
     for num in test_numbers:
         result = "소수" if is_prime(num) else "합성수"
         print(f"{num}: {result}")
-
-
