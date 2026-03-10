@@ -114,9 +114,22 @@ def is_prime(n):
     """
     # TODO: 소수 판별 구현
     # n이 2보다 작으면 False
+    import math
+    limit = n
+    primes = list([1] * (limit+1))   #0~1000까지 0 포함해서 1001
+    primes[0], primes[1] = 0, 0 #0, 1 제외
+    for i in range(2,math.ceil(math.sqrt(limit)+1)):
+        if primes[i] == 1:
+            pointer = i * 2
+            while pointer <= limit:
+                primes[pointer] = 0
+                pointer += i 
     # 2부터 sqrt(n)까지 나누어 떨어지는지 확인    
     # 3부터 sqrt(n)까지 홀수만 확인
-    pass 
+    if primes[n] == 0:
+        return False
+    else:
+        return True
 
 # 테스트 케이스
 if __name__ == "__main__":
@@ -147,14 +160,14 @@ if __name__ == "__main__":
     print()
     
     # 테스트 케이스 4: 확장 유클리드
-    print("=== 테스트 케이스 4: 확장 유클리드 ===")
-    a, b = 35, 15
-    g, x, y = extended_gcd(a, b)
-    print(f"a = {a}, b = {b}")
-    print(f"GCD = {g}")
-    print(f"{a} × {x} + {b} × {y} = {g}")
-    print(f"검증: {a * x + b * y} = {g}")
-    print()
+    # print("=== 테스트 케이스 4: 확장 유클리드 ===")
+    # a, b = 35, 15
+    # g, x, y = extended_gcd(a, b)
+    # print(f"a = {a}, b = {b}")
+    # print(f"GCD = {g}")
+    # print(f"{a} × {x} + {b} × {y} = {g}")
+    # print(f"검증: {a * x + b * y} = {g}")
+    # print()
     
     # 테스트 케이스 5: 소수 판별
     print("=== 테스트 케이스 5: 소수 판별 ===")
