@@ -95,7 +95,7 @@ def extended_gcd(a, b):
     # recursive case
     if a >b:
         a = a % b
-        extended_gcd()
+        # extended_gcd()
 
         
     # 역추적하며 x, y 계산

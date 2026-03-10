@@ -27,7 +27,7 @@ def walk(start, current, walked, spend):
                 spend += W[current][target] #선행
                 walked.append(target)
                 walk(start, target, walked, spend) #재귀
-                spend -= W[current][target]
+                spend -= W[current][target] #취소
                 walked.remove(target)
     #
 walked.append(0)
