@@ -89,12 +89,13 @@ def extended_gcd(a, b):
         (gcd, x, y) 튜플
     """
     # TODO: 확장 유클리드 호제법 구현
-    # base case: b가 0이면 (a, 1, 0) 반환    
-    if b == 0:
+    if b  == 0:
         return (a,1,0)
+    
+    # base case: b가 0이면 (a, 1, 0) 반환    
+    
     # recursive case
-    if a >b:
-        a = a % b
+    # recursive를 이용  
         # extended_gcd()
 
         
