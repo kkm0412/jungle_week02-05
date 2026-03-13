@@ -42,10 +42,12 @@ def process_print_queue(jobs):
     processed = []
     
     # TODO: 큐가 비어있지 않은 동안 반복
+    while len(queue) != 0:
     ## 큐에서 작업 꺼내기
+        current_list = queue.popleft()
     ## 작업 처리 (출력 및 리스트에 추가)
-    pass
-    
+        print("처리:", current_list)
+        processed.append(current_list)
     return processed
 
 # 테스트 케이스
