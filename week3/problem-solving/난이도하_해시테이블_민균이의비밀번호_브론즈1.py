@@ -14,7 +14,11 @@ for i in range(N):
     passwords.append({"pwd": pwd, "rev_pwd":rev_pwd, "length":length, "mid":mid})
 
 for i in range(N):
+    isFound = False
     for j in range(N):
         if passwords[i]["pwd"] == passwords[j]["rev_pwd"]:
             print(passwords[i]["length"], passwords[j]["mid"])
+            isFound = True
             break
+    if isFound == True:
+        break
