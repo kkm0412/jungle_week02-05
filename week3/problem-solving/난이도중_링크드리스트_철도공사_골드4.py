@@ -7,19 +7,30 @@ input = sys.stdin.readline
 N, M = map(int, input().split())
 nums = list(map(int, input().split()))
 
+MAX = 1000001
 
-next_s = {} 
-prev_s = {}
+next_s = [0] * MAX
+prev_s = [0] * MAX
 result = []
 
-first = nums[0]
-for i in range(len(nums) - 1):
-    j = i + 1
-    next_s[nums[i]] = nums[j]
-    prev_s[nums[j]] = nums[i]
-last = nums[len(nums)-1]
-next_s[last] = first
-prev_s[first] = last
+# next_s = {} #딕셔너리로 하니 안됨
+# prev_s = {}
+# result = []
+
+for i in range(N - 1):
+    next_s[nums[i]] = nums[i+1]
+    prev_s[nums[i+1]] = nums[i]
+next_s[nums[-1]] = nums[0]
+prev_s[nums[0]] = nums[-1]
+
+# first = nums[0]
+# for i in range(len(nums) - 1):
+#     j = i + 1
+#     next_s[nums[i]] = nums[j]
+#     prev_s[nums[j]] = nums[i]
+# last = nums[len(nums)-1]
+# next_s[last] = first
+# prev_s[first] = last
 
 def BN(i, j):
     result.append(str(next_s[i]))
