@@ -18,7 +18,7 @@ for _ in range(T):
         planes[a].append(b)
         planes[b].append(a)
     queue = deque([1])
-    visited = []
+    visited = [1]
     count = 0
     while len(queue) != 0:
         x = queue.popleft()
