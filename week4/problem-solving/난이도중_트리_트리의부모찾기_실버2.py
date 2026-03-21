@@ -30,5 +30,5 @@ while len(queue) != 0:
             parents[child] = x
             queue.append(child)
 
-for i in range(1, N+1):
+for i in range(2, N+1):
     print(parents[i])
