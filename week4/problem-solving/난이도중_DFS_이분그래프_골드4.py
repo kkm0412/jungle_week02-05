@@ -27,22 +27,27 @@ for _ in range(K):
     color[1] = -1
     visited[1] = True
 
-    while len(queue) != 0:
-        x = queue.popleft()
-        c = color[x]
-        for num in graph[x]:
-            if color[num] == 0:
-                color[num] = -c
-                visited[num] = True
+    for t in range(1, V+1):
+        if not visited[t]:
+            queue = deque([t])
+            color[t] = -1
+            visited[t] = True
+        while len(queue) != 0:
+            x = queue.popleft()
+            c = color[x]
+            for num in graph[x]:
+                if color[num] == 0:
+                    color[num] = -c
+                    visited[num] = True
 
-                queue.append(num)
+                    queue.append(num)
 
-            else:
-                if color[num] == c:
-                    is_divide = False
+                else:
+                    if color[num] == c:
+                        is_divide = False
 
-        if not is_divide:
-            break
+            if not is_divide:
+                break
     if is_divide:
         print("YES")
     else:
