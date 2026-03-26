@@ -3,7 +3,6 @@
 
 #bfs로
 #레드(-1) 블루(1) 집어넣어서 정점 칠하기
-#visited와 만날시 레드인지 블루인지 확인하고 서로 다르면 패스 같으면 이분그래프 아님으로
 
 from collections import deque
 

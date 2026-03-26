@@ -1,0 +1,47 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+from collections import deque
+queue = deque([])
+visited = {}
+# class bst:
+#     def __init__(self, root):
+#         queue.append((root, 1))
+#         visited[1] = []
+#         self.search()
+
+#     def search(self):
+#         x = queue.pop()
+#         visited[x[1]].append(x[0].val)
+#         if x[0].left != None:
+#             self.search(x[0].left, x[1] + 1)
+#         if x[0].right != None:
+#             self.search(x[0].right, x[1] + 1)
+class Solution:
+    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+        queue.append((root, 1))
+        visited[1] = []
+        self.search()
+        i = 0
+        result = []
+        while True:
+            if i in visited:
+                y = len(visited[i])
+                x = 0
+                for j in range(y):
+                    x+= visited[i][j]
+                result.append(x/y)
+            else:
+                break
+        print(result)
+    def search(self):
+        while len(queue) != 0:
+            x = queue.pop()
+            visited[x[1]].append(x[0].val)
+            if x[0].left is not None:
+                queue.append((x[0].left, x[1] + 1))
+            if x[0].right is not None:
+                queue.append((x[0].right, x[1] + 1))

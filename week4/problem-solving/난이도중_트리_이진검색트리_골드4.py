@@ -33,7 +33,7 @@ post_order(0, len(nums)-1)
 # def post_order(nums, pivot):
 #     left_nums =[]
 #     right_nums = []
-#     for i in range(1, len(nums)):
+#     for i in range(1,3 len(nums)):
 #         num = nums[i]
 #         if num < pivot:
 #             left_nums.append(num)
